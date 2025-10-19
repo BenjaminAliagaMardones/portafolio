@@ -3,92 +3,174 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portafolio | Tu Nombre</title>
+    <title>Portafolio | Benjamin Aliaga</title>
     <meta name="description" content="Portafolio personal de Benjamin Aliaga: proyectos, habilidades y contacto." />
-  </head>
-  <body>
-    <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-    <header role="banner">
-      <nav aria-label="Principal">
-        <a href="#hero" aria-label="Ir al inicio">Tu Nombre</a>
-        <ul>
-          <li><a href="#about">Acerca de</a></li>
-          <li><a href="#projects">Proyectos</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
+    <!-- Fuente limpia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'media',
+        theme: {
+          extend: {
+            colors: {
+              accent: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji']
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="font-sans antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 selection:bg-accent-100 selection:text-accent-900">
+    <!-- Saltar al contenido -->
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent-600 dark:focus:bg-gray-900">
+      Saltar al contenido
+    </a>
+
+    <!-- Header / Nav -->
+    <header role="banner" class="sticky top-0 z-40 border-b border-gray-200 bg-white/80 backdrop-blur dark:border-gray-800 dark:bg-gray-900/70">
+      <nav aria-label="Principal" class="mx-auto max-w-5xl px-4">
+        <div class="flex h-16 items-center justify-between">
+          <a href="#hero" aria-label="Ir al inicio" class="text-lg font-semibold tracking-tight text-gray-900 hover:text-accent-700 dark:text-white dark:hover:text-accent-300">
+            Benjamin Aliaga
+          </a>
+          <ul class="hidden gap-6 sm:flex">
+            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:text-gray-300 dark:hover:text-white rounded px-1 py-1" href="#about">Acerca de</a></li>
+            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:text-gray-300 dark:hover:text-white rounded px-1 py-1" href="#projects">Proyectos</a></li>
+            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:text-gray-300 dark:hover:text-white rounded px-1 py-1" href="#contact">Contacto</a></li>
+          </ul>
+        </div>
       </nav>
     </header>
 
-    <main id="contenido">
-      <section id="hero" aria-label="Presentación">
-        <h1>Hola, soy Benjamin Aliaga</h1>
-        <p>Desarrollador web y me especializo en crear sitios modernos y automatizaciones eficientes para hacer tu presencia digital más rápida y accesible</p>
-        <p>
-          <a href="#projects">Ver proyectos</a>
-          <a href="#contact">Contactar</a>
-        </p>
+    <main id="contenido" class="mx-auto max-w-5xl px-4">
+      <!-- Hero -->
+      <section id="hero" aria-label="Presentación" class="py-20 sm:py-28">
+        <div class="space-y-6">
+          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white">
+            Hola, soy <span class="text-accent-700 dark:text-accent-400">Benjamin Aliaga</span>
+          </h1>
+          <p class="max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+            Desarrollador web. Creo sitios modernos y automatizaciones eficientes para hacer tu presencia digital más rápida y accesible.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#projects" class="inline-flex items-center justify-center rounded-md bg-accent-600 px-4 py-2 text-white shadow-sm transition hover:bg-accent-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600">
+              Ver proyectos
+            </a>
+            <a href="#contact" class="inline-flex items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-gray-700 transition hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800">
+              Contactar
+            </a>
+          </div>
+        </div>
       </section>
 
-      <section id="about" aria-labelledby="titulo-about">
-        <h2 id="titulo-about">Acerca de mí</h2>
-        <p>Tengo una gran pasión por crear sitios modernos y automatizaciones útiles. Me he enfocado en aprender</p>
-        <ul>
-          <li>Tailwind</li>
-          <li>JavaScript / TypeScript</li>
-          <li>n8n</li>
+      <!-- About -->
+      <section id="about" aria-labelledby="titulo-about" class="border-t border-gray-200 py-16 dark:border-gray-800">
+        <h2 id="titulo-about" class="mb-4 text-2xl font-semibold tracking-tight">Acerca de mí</h2>
+        <p class="max-w-2xl text-gray-600 dark:text-gray-300">
+          Tengo una gran pasión por crear sitios modernos y automatizaciones útiles. Me he enfocado en aprender:
+        </p>
+        <ul class="mt-6 flex flex-wrap gap-2">
+          <li><span class="inline-block rounded-full border border-accent-200 bg-accent-50 px-3 py-1 text-sm text-accent-800">Tailwind</span></li>
+          <li><span class="inline-block rounded-full border border-gray-300 bg-gray-50 px-3 py-1 text-sm text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200">JavaScript / TypeScript</span></li>
+          <li><span class="inline-block rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-sm text-emerald-800">n8n</span></li>
         </ul>
       </section>
 
-      <section id="projects" aria-labelledby="titulo-proyectos">
-        <h2 id="titulo-proyectos">Proyectos</h2>
+      <!-- Projects -->
+      <section id="projects" aria-labelledby="titulo-proyectos" class="border-t border-gray-200 py-16 dark:border-gray-800">
+        <div class="mb-8 flex items-end justify-between">
+          <h2 id="titulo-proyectos" class="text-2xl font-semibold tracking-tight">Proyectos</h2>
+          <a href="#contact" class="text-sm text-accent-700 hover:text-accent-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:text-accent-300 dark:hover:text-accent-200 rounded px-1 py-1">¿Colaboramos?</a>
+        </div>
 
-        <article>
-          <header><h3>Proyecto 1</h3></header>
-          <figure>
-            <img src="public/preview-proyecto-1.jpg" alt="Vista previa del Proyecto 1" />
-            <figcaption>Descripción corta del Proyecto 1.</figcaption>
-          </figure>
-          <p>Stack: HTML, CSS, JS.</p>
-          <p>
-            <a href="#" target="_blank" rel="noopener noreferrer">Demo</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">Código</a>
-          </p>
-        </article>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <!-- Card Proyecto 1 -->
+          <article class="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
+            <figure class="overflow-hidden">
+              <img class="h-48 w-full object-cover transition duration-300 group-hover:scale-[1.02]" src="public/preview-proyecto-1.jpg" alt="Vista previa del Proyecto 1" />
+            </figure>
+            <div class="space-y-3 p-5">
+              <header>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-accent-700 dark:text-white dark:group-hover:text-accent-300">Proyecto 1</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Descripción corta del Proyecto 1.</p>
+              </header>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Stack: HTML, CSS, JS.</p>
+              <div class="flex gap-3">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-md bg-gray-900 px-3 py-1.5 text-sm text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white">Demo</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800">Código</a>
+              </div>
+            </div>
+          </article>
 
-        <article>
-          <header><h3>Proyecto 2</h3></header>
-          <figure>
-            <img src="public/preview-proyecto-2.jpg" alt="Vista previa del Proyecto 2" />
-            <figcaption>Descripción corta del Proyecto 2.</figcaption>
-          </figure>
-          <p>Stack: HTML, CSS, JS.</p>
-          <p>
-            <a href="#" target="_blank" rel="noopener noreferrer">Demo</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">Código</a>
-          </p>
-        </article>
+          <!-- Card Proyecto 2 -->
+          <article class="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
+            <figure class="overflow-hidden">
+              <img class="h-48 w-full object-cover transition duration-300 group-hover:scale-[1.02]" src="public/preview-proyecto-2.jpg" alt="Vista previa del Proyecto 2" />
+            </figure>
+            <div class="space-y-3 p-5">
+              <header>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-accent-700 dark:text-white dark:group-hover:text-accent-300">Proyecto 2</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Descripción corta del Proyecto 2.</p>
+              </header>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Stack: HTML, CSS, JS.</p>
+              <div class="flex gap-3">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-md bg-gray-900 px-3 py-1.5 text-sm text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white">Demo</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800">Código</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
-      <section id="contact" aria-labelledby="titulo-contacto">
-        <h2 id="titulo-contacto">Contacto</h2>
-        <form action="#" method="post">
+      <!-- Contacto -->
+      <section id="contact" aria-labelledby="titulo-contacto" class="border-t border-gray-200 py-16 dark:border-gray-800">
+        <h2 id="titulo-contacto" class="mb-6 text-2xl font-semibold tracking-tight">Contacto</h2>
+        <form action="#" method="post" class="max-w-xl space-y-4">
           <div>
-            <label for="nombre">Nombre</label>
-            <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+            <label for="nombre" class="mb-1 block text-sm font-medium">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required
+                   class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-600 dark:border-gray-700 dark:bg-gray-800 dark:text-white" />
           </div>
           <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
+            <label for="email" class="mb-1 block text-sm font-medium">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required
+                   class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-600 dark:border-gray-700 dark:bg-gray-800 dark:text-white" />
           </div>
           <div>
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            <label for="mensaje" class="mb-1 block text-sm font-medium">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required
+                      class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-600 dark:border-gray-700 dark:bg-gray-800 dark:text-white"></textarea>
           </div>
-          <button type="submit">Enviar</button>
+          <button type="submit" class="inline-flex items-center rounded-md bg-accent-600 px-4 py-2 text-white shadow-sm transition hover:bg-accent-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600">
+            Enviar
+          </button>
         </form>
       </section>
     </main>
 
-    <footer role="contentinfo">
-      <small>© 2025 Tu
+    <!-- Footer -->
+    <footer role="contentinfo" class="mt-10 border-t border-gray-200 py-8 text-center text-sm text-gray-500 dark:border-gray-800 dark:text-gray-400">
+      <small>© 2025 Benjamin Aliaga. Todos los derechos reservados.</small>
+    </footer>
+  </body>
+</html>

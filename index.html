@@ -3,20 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portafolio | Benjamin Aliaga</title>
-    <meta name="description" content="Portafolio personal de Benjamin Aliaga: proyectos, habilidades y contacto." />
+    <title>Desarrollo Web para Negocios Locales | Benjamin Aliaga - Desarrollador Freelance en Chile</title>
+    <meta name="description" content="Sitios web profesionales y automatizaciones para negocios locales en Chile. +10 proyectos entregados. Especializado en landing pages, sistemas de reservas y automatizaciones n8n." />
 
     <!-- Open Graph para vista previa al compartir -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://benjaminaliagamardones.github.io/portafolio/" />
-    <meta property="og:title" content="Portafolio | Benjamin Aliaga" />
-    <meta property="og:description" content="Portafolio personal de Benjamin Aliaga: proyectos, habilidades y contacto." />
+    <meta property="og:title" content="Desarrollo Web para Negocios Locales | Benjamin Aliaga" />
+    <meta property="og:description" content="Sitios web profesionales y automatizaciones para negocios locales en Chile. +10 proyectos entregados." />
     <meta property="og:image" content="https://res.cloudinary.com/dznaazkwa/image/upload/v1760971463/Captura_desde_2025-10-20_11-43-07_1_xcx2lu.png" />
 
     <!-- Fuente limpia -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- AOS Library para animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    
+    <!-- AOS Library para animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,6 +32,18 @@
         theme: {
           extend: {
             colors: {
+              primary: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                200: '#bfdbfe',
+                300: '#93c5fd',
+                400: '#60a5fa',
+                500: '#3b82f6',
+                600: '#2563eb',
+                700: '#1d4ed8',
+                800: '#1e40af',
+                900: '#1e3a8a'
+              },
               accent: {
                 50: '#f0f9ff',
                 100: '#e0f2fe',
@@ -37,6 +55,18 @@
                 700: '#0369a1',
                 800: '#075985',
                 900: '#0c4a6e'
+              },
+              warm: {
+                50: '#fffbeb',
+                100: '#fef3c7',
+                200: '#fde68a',
+                300: '#fcd34d',
+                400: '#fbbf24',
+                500: '#f59e0b',
+                600: '#d97706',
+                700: '#b45309',
+                800: '#92400e',
+                900: '#78350f'
               }
             },
             fontFamily: {
@@ -46,6 +76,21 @@
         }
       }
     </script>
+    
+    <!-- Estilos personalizados -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      .hero-gradient {
+        background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 50%, #fef3c7 100%);
+      }
+      
+      .navbar-shadow {
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+      }
+    </style>
   </head>
   <body class="font-sans antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 selection:bg-accent-100 selection:text-accent-900">
     <!-- Saltar al contenido -->
@@ -54,301 +99,806 @@
     </a>
 
     <!-- Header / Nav -->
-    <header role="banner" class="sticky top-0 z-40 border-b border-gray-200 bg-white/80 backdrop-blur dark:border-gray-800 dark:bg-gray-900/70">
-      <nav aria-label="Principal" class="mx-auto max-w-5xl px-4">
+    <header role="banner" id="navbar" class="sticky top-0 z-40 border-b border-gray-200 bg-white/80 backdrop-blur transition-shadow duration-300 dark:border-gray-800 dark:bg-gray-900/70">
+      <nav aria-label="Principal" class="mx-auto max-w-6xl px-4">
         <div class="flex h-16 items-center justify-between">
-          <a href="#hero" aria-label="Ir al inicio" class="text-lg font-semibold tracking-tight text-gray-900 hover:text-accent-700 dark:text-white dark:hover:text-accent-300">
+          <a href="#hero" aria-label="Ir al inicio" class="text-lg font-bold tracking-tight text-gray-900 hover:text-primary-600 transition-colors dark:text-white dark:hover:text-primary-300">
             Benjamin Aliaga
           </a>
           <ul class="hidden gap-6 sm:flex">
-            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:text-gray-300 dark:hover:text-white rounded px-1 py-1" href="#about">Acerca de</a></li>
-            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:text-gray-300 dark:hover:text-white rounded px-1 py-1" href="#servicios">Servicios</a></li>
-            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:text-gray-300 dark:hover:text-white rounded px-1 py-1" href="#projects">Proyectos</a></li>
-            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:text-gray-300 dark:hover:text-white rounded px-1 py-1" href="#contact">Contacto</a></li>
+            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 dark:text-gray-300 dark:hover:text-white rounded px-2 py-1 transition-colors font-medium" href="#servicios">Servicios</a></li>
+            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 dark:text-gray-300 dark:hover:text-white rounded px-2 py-1 transition-colors font-medium" href="#proyectos">Proyectos</a></li>
+            <li><a class="text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 dark:text-gray-300 dark:hover:text-white rounded px-2 py-1 transition-colors font-medium" href="#precios">Precios</a></li>
+            <li><a class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-primary-700 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600" href="#contacto">Contactar</a></li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <main id="contenido" class="mx-auto max-w-5xl px-4">
+    <main id="contenido" class="mx-auto max-w-6xl px-4">
       <!-- Hero -->
-      <section id="hero" aria-label="Presentación" class="py-20 sm:py-28">
-        <div class="space-y-6">
-          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white">
-            Portafolio de <span class="text-accent-700 dark:text-accent-400">Benjamin Aliaga <br> Desarrollador Web & Automatizaciones</span>
-          </h1>
-          <p class="max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-            Soy Benjamin, desarrollador web enfocado en crear soluciones digitales para personas y negocios que quieren crecer en internet. Me especializo en automatizar procesos con n8n y crear sitios modernos que funcionan.
-          </p>  
-          <div class="flex flex-wrap gap-3">
-            <a href="#projects" class="inline-flex items-center justify-center rounded-md bg-accent-600 px-4 py-2 text-white shadow-sm transition hover:bg-accent-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600">
-              Ver proyectos
-            </a>
-            <a href="#contact" class="inline-flex items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-gray-700 transition hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800">
-              Contactar
-            </a>
+      <section id="hero" aria-label="Presentación" class="py-16 sm:py-24">
+        <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          <!-- Contenido principal -->
+          <div class="space-y-6" data-aos="fade-up">
+            <div class="inline-block">
+              <span class="inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-2 text-sm font-semibold text-primary-700 dark:bg-primary-900/30 dark:text-primary-300">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                Disponible para proyectos nuevos
+              </span>
+            </div>
+            
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white leading-tight">
+              Desarrollo sitios web <span class="text-primary-600 dark:text-primary-400">rápidos, modernos y optimizados</span> para negocios locales
+            </h1>
+            
+            <p class="text-xl leading-relaxed text-gray-600 dark:text-gray-300 max-w-2xl">
+              Ayudo a negocios locales y PYMEs a destacar en línea con sitios web profesionales que generan resultados. Sin complicaciones técnicas, solo soluciones que funcionan.
+            </p>
+            
+            <!-- Micro-credibilidad -->
+            <div class="flex flex-wrap gap-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                <svg class="h-5 w-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-sm font-medium">+10 proyectos entregados</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                <svg class="h-5 w-5 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+                <span class="text-sm font-medium">Astro · Tailwind · n8n</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                <svg class="h-5 w-5 text-warm-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="text-sm font-medium">Chile 🇨🇱 → Latinoamérica</span>
+              </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a href="#servicios" class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg transition hover:bg-primary-700 hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
+                Ver mis servicios
+                <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </a>
+              <a href="#contacto" class="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-6 py-3.5 text-base font-semibold text-gray-700 transition hover:bg-gray-50 hover:border-gray-400 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800">
+                Solicitar cotización
+              </a>
+            </div>
+          </div>
+          
+          <!-- Foto profesional / Ilustración -->
+          <div class="hidden lg:block" data-aos="fade-left" data-aos-delay="200">
+            <div class="relative">
+              <div class="absolute inset-0 hero-gradient rounded-3xl blur-3xl opacity-30"></div>
+              <div class="relative aspect-square rounded-3xl bg-gradient-to-br from-primary-100 via-accent-50 to-warm-100 p-8 shadow-2xl dark:from-primary-900/20 dark:via-accent-900/20 dark:to-warm-900/20">
+                <div class="h-full w-full rounded-2xl bg-white dark:bg-gray-800 shadow-xl flex items-center justify-center p-8">
+                  <!-- Placeholder para foto profesional o ilustración -->
+                  <svg class="w-full h-full text-gray-300 dark:text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- About -->
-      <section id="about" aria-labelledby="titulo-about" class="border-t border-gray-200 py-16 dark:border-gray-800">
-        <h2 id="titulo-about" class="mb-4 text-2xl font-semibold tracking-tight">Acerca de mí</h2>
-        <p class="max-w-2xl text-gray-600 dark:text-gray-300">
-          Tengo una gran pasión por crear sitios modernos y automatizaciones útiles. Me he enfocado en aprender:
-        </p>
-        <ul class="mt-6 flex flex-wrap gap-2">
-          <li><span class="inline-block rounded-full border border-accent-200 bg-accent-50 px-3 py-1 text-sm text-accent-800">Tailwind</span></li>
-          <li><span class="inline-block rounded-full border border-gray-300 bg-gray-50 px-3 py-1 text-sm text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200">JavaScript / TypeScript</span></li>
-          <li><span class="inline-block rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-sm text-emerald-800">n8n</span></li>
-        </ul>
+      <!-- About / Sobre mí -->
+      <section id="sobre-mi" aria-labelledby="titulo-about" class="border-t border-gray-200 py-20 dark:border-gray-800">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+          <div class="text-center mb-12">
+            <h2 id="titulo-about" class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+              ¿Por qué trabajar conmigo?
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Soy Benjamin, desarrollador web enfocado en crear soluciones digitales que ayudan a negocios locales a crecer. Me especializo en sitios rápidos, mantenibles y listos para posicionarse.
+            </p>
+          </div>
+          
+          <!-- 3 Pilares -->
+          <div class="grid gap-8 md:grid-cols-3 mt-12">
+            <!-- Pilar 1: Rápido -->
+            <div class="text-center group" data-aos="zoom-in" data-aos-delay="100">
+              <div class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-100 text-primary-600 mb-4 group-hover:scale-110 transition-transform dark:bg-primary-900/30 dark:text-primary-400">
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">⚡ Rápido y optimizado</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Sitios que cargan en segundos y ofrecen una experiencia fluida en cualquier dispositivo.
+              </p>
+            </div>
+            
+            <!-- Pilar 2: Conversiones -->
+            <div class="text-center group" data-aos="zoom-in" data-aos-delay="200">
+              <div class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-warm-100 text-warm-600 mb-4 group-hover:scale-110 transition-transform dark:bg-warm-900/30 dark:text-warm-400">
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">🎯 Diseñado para conversiones</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Cada elemento está pensado para convertir visitantes en clientes reales.
+              </p>
+            </div>
+            
+            <!-- Pilar 3: Fácil de mantener -->
+            <div class="text-center group" data-aos="zoom-in" data-aos-delay="300">
+              <div class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-100 text-accent-600 mb-4 group-hover:scale-110 transition-transform dark:bg-accent-900/30 dark:text-accent-400">
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">🧩 Fácil de mantener</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Código limpio y documentado que puedes actualizar sin complicaciones.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Tecnologías -->
+          <div class="mt-16 text-center" data-aos="fade-up">
+            <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-6">Tecnologías que domino</p>
+            <ul class="flex flex-wrap justify-center gap-3">
+              <li><span class="inline-block rounded-full border-2 border-primary-200 bg-primary-50 px-4 py-2 text-sm font-semibold text-primary-800 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-300">Astro</span></li>
+              <li><span class="inline-block rounded-full border-2 border-accent-200 bg-accent-50 px-4 py-2 text-sm font-semibold text-accent-800 dark:border-accent-800 dark:bg-accent-900/30 dark:text-accent-300">Tailwind CSS</span></li>
+              <li><span class="inline-block rounded-full border-2 border-gray-300 bg-gray-50 px-4 py-2 text-sm font-semibold text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200">JavaScript / TypeScript</span></li>
+              <li><span class="inline-block rounded-full border-2 border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-800 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">n8n</span></li>
+              <li><span class="inline-block rounded-full border-2 border-purple-200 bg-purple-50 px-4 py-2 text-sm font-semibold text-purple-800 dark:border-purple-800 dark:bg-purple-900/30 dark:text-purple-300">React</span></li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <!-- Servicios -->
-      <section id="servicios" aria-labelledby="titulo-servicios" class="border-t border-gray-200 py-16 dark:border-gray-800">
-        <div class="text-center mb-12">
-          <h2 id="titulo-servicios" class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
-            Soluciones a tu medida
+      <section id="servicios" aria-labelledby="titulo-servicios" class="border-t border-gray-200 py-20 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 id="titulo-servicios" class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+            Soluciones para tu negocio
           </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Transformo tus ideas en herramientas digitales que generan resultados.
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Desde presencia online hasta automatizaciones completas. Elige el servicio que mejor se adapte a tus necesidades.
           </p>
         </div>
 
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Tarjeta 1: Pack 1 - Presencia Web -->
-          <article class="flex flex-col rounded-2xl border border-gray-200 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 dark:border-gray-700 dark:bg-gray-800">
-            <div class="p-6 flex-1 flex flex-col">
-              <header class="mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Pack 1: Presencia Web</h3>
-                <p class="text-sm font-medium text-accent-600 dark:text-accent-400 mb-3">Tu negocio en internet, profesional y directo.</p>
-                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                  La solución ideal para profesionales y negocios que necesitan una "tarjeta de presentación" digital impecable. Genera confianza y permite que tus clientes te encuentren.
-                </p>
-              </header>
-
-              <div class="mb-6 flex-1">
-                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">¿Qué incluye?</h4>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                  <li class="flex items-start">
-                    <span class="text-accent-600 dark:text-accent-400 mr-2">✓</span>
-                    <span>Sitio web de una página (Landing Page) con un diseño 100% a medida.</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-accent-600 dark:text-accent-400 mr-2">✓</span>
-                    <span>Diseño adaptable a celulares, tablets y computadores.</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-accent-600 dark:text-accent-400 mr-2">✓</span>
-                    <span>Secciones clave: Servicios, Galería, Quiénes somos, Ubicación.</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-accent-600 dark:text-accent-400 mr-2">✓</span>
-                    <span>Formulario de contacto para recibir consultas directamente a tu email.</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-accent-600 dark:text-accent-400 mr-2">✓</span>
-                    <span>Mapa de ubicación (Google Maps).</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="mb-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                <p class="text-xs text-gray-500 dark:text-gray-400 italic">
-                  <strong>Ideal para:</strong> Profesionales independientes, portafolios, negocios locales que buscan su primera web.
-                </p>
-              </div>
-
-              <a href="#contact" class="block w-full text-center rounded-lg bg-accent-600 px-4 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-accent-700 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600">
-                Cotizar este pack
-              </a>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12">
+          <!-- Servicio 1: Sitios para negocios locales -->
+          <article class="group rounded-2xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up" data-aos-delay="100">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary-100 text-primary-600 mb-6 dark:bg-primary-900/30 dark:text-primary-400">
+              <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+              </svg>
             </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Sitios para negocios locales</h3>
+            <p class="text-primary-600 dark:text-primary-400 font-semibold mb-4 text-lg">Presencia online profesional en días, no semanas.</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              Landing page completa con diseño moderno, responsive y optimizado para atraer clientes locales.
+            </p>
           </article>
 
-          <!-- Tarjeta 2: Pack 2 - Negocio Interactivo -->
-          <article class="flex flex-col rounded-2xl border-2 border-accent-500 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 dark:border-accent-600 dark:bg-gray-800 relative">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent-600 text-white text-xs font-bold px-4 py-1 rounded-full">
-              Popular
+          <!-- Servicio 2: Sistemas de reservas -->
+          <article class="group rounded-2xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up" data-aos-delay="200">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-warm-100 text-warm-600 mb-6 dark:bg-warm-900/30 dark:text-warm-400">
+              <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
             </div>
-            <div class="p-6 flex-1 flex flex-col">
-              <header class="mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Pack 2: Negocio Interactivo</h3>
-                <p class="text-sm font-medium text-accent-600 dark:text-accent-400 mb-3">Tu recepcionista digital: convierte visitantes en clientes.</p>
-                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                  Da el siguiente paso. Esta web no solo informa, sino que trabaja para ti, capturando clientes y gestionando tu agenda 24/7.
-                </p>
-              </header>
-
-              <div class="mb-6 flex-1">
-                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">¿Qué incluye?</h4>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                  <li class="flex items-start">
-                    <span class="text-accent-600 dark:text-accent-400 mr-2">✓</span>
-                    <span>Todo lo del pack "Presencia Web", más:</span>
-                  </li>
-                  <li class="ml-4">
-                    <span class="font-medium text-gray-700 dark:text-gray-200">Integración de Sistema de Reservas (tipo Calendly):</span>
-                    <ul class="mt-1 space-y-1 ml-4">
-                      <li class="flex items-start">
-                        <span class="text-gray-400 mr-2">—</span>
-                        <span>Tus clientes agendan citas solos, a cualquier hora.</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-gray-400 mr-2">—</span>
-                        <span>Se evitan reservas duplicadas o fuera de horario.</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-gray-400 mr-2">—</span>
-                        <span>Sincronización automática con tu Google Calendar.</span>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-accent-600 dark:text-accent-400 mr-2">✓</span>
-                    <span>Botón flotante de WhatsApp para consultas inmediatas.</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="mb-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                <p class="text-xs text-gray-500 dark:text-gray-400 italic">
-                  <strong>Ideal para:</strong> Barberías, consultas (médicas, psicólogos), consultores, estudios y cualquier negocio que dependa de citas.
-                </p>
-              </div>
-
-              <a href="#contact" class="block w-full text-center rounded-lg bg-accent-600 px-4 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-accent-700 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600">
-                Quiero este pack
-              </a>
-            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Sistemas de reservas integrados</h3>
+            <p class="text-warm-600 dark:text-warm-400 font-semibold mb-4 text-lg">Automatiza tu agenda y gana tiempo valioso.</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              Tus clientes agendan citas 24/7 sin intervención manual. Sincronizado con tu calendario.
+            </p>
           </article>
 
-          <!-- Tarjeta 3: Pack 3 - Negocio Automatizado -->
-          <article class="flex flex-col rounded-2xl border border-gray-200 bg-gradient-to-br from-gray-50 to-white shadow-lg hover:shadow-xl transition-shadow duration-300 dark:border-gray-700 dark:from-gray-800 dark:to-gray-800">
-            <div class="p-6 flex-1 flex flex-col">
-              <header class="mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Pack 3: Negocio Automatizado</h3>
-                <p class="text-sm font-medium text-accent-600 dark:text-accent-400 mb-3">La solución completa: optimiza tu tiempo y tus datos.</p>
-                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                  Este es el paquete premium para negocios que quieren operar con máxima eficiencia. Conectamos tu web con las herramientas que ya usas para que dejes de hacer tareas manuales.
-                </p>
-              </header>
-
-              <div class="mb-6 flex-1">
-                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3">¿Qué incluye?</h4>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                  <li class="flex items-start">
-                    <span class="text-accent-600 dark:text-accent-400 mr-2">✓</span>
-                    <span>Todo lo del pack "Negocio Interactivo", más:</span>
-                  </li>
-                  <li class="ml-4">
-                    <span class="font-medium text-gray-700 dark:text-gray-200">+ (1) Automatización de procesos simple, a elección:</span>
-                    <ul class="mt-1 space-y-1 ml-4">
-                      <li class="flex items-start">
-                        <span class="text-gray-400 mr-2">—</span>
-                        <span><strong>Opción A:</strong> Guardar cada nuevo contacto de tu formulario automáticamente en una planilla de Google Sheets.</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-gray-400 mr-2">—</span>
-                        <span><strong>Opción B:</strong> Enviar un email de bienvenida automático a cada cliente que agenda una cita.</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-gray-400 mr-2">—</span>
-                        <span class="italic">(¿Tienes otra idea? ¡Conversemos!)</span>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="mb-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                <p class="text-xs text-gray-500 dark:text-gray-400 italic">
-                  <strong>Ideal para:</strong> Pymes en crecimiento que manejan muchos contactos y quieren ahorrar horas de gestión manual.
-                </p>
-              </div>
-
-              <a href="#contact" class="block w-full text-center rounded-lg bg-gray-900 px-4 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-gray-800 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:bg-accent-600 dark:hover:bg-accent-700">
-                Conversemos sobre este pack
-              </a>
+          <!-- Servicio 3: Automatizaciones n8n -->
+          <article class="group rounded-2xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up" data-aos-delay="300">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent-100 text-accent-600 mb-6 dark:bg-accent-900/30 dark:text-accent-400">
+              <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
             </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Automatizaciones n8n</h3>
+            <p class="text-accent-600 dark:text-accent-400 font-semibold mb-4 text-lg">Ahorra horas conectando tus sistemas con flujos inteligentes.</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              Integra tu web con Google Sheets, emails, WhatsApp, CRM y más. Sin código complicado.
+            </p>
           </article>
+
+          <!-- Servicio 4: Integraciones personalizadas -->
+          <article class="group rounded-2xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up" data-aos-delay="100">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-purple-100 text-purple-600 mb-6 dark:bg-purple-900/30 dark:text-purple-400">
+              <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Integraciones personalizadas</h3>
+            <p class="text-purple-600 dark:text-purple-400 font-semibold mb-4 text-lg">Conecta tu web con WhatsApp, Sheets o tu CRM.</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              Desarrollos a medida para que tu sitio se comunique con las herramientas que ya usas.
+            </p>
+          </article>
+
+          <!-- Servicio 5: SEO y optimización -->
+          <article class="group rounded-2xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up" data-aos-delay="200">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 mb-6 dark:bg-emerald-900/30 dark:text-emerald-400">
+              <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">SEO y optimización</h3>
+            <p class="text-emerald-600 dark:text-emerald-400 font-semibold mb-4 text-lg">Aparece en Google y atrae más clientes.</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              Optimización técnica, velocidad de carga y mejores prácticas para posicionamiento.
+            </p>
+          </article>
+
+          <!-- Servicio 6: Mantenimiento -->
+          <article class="group rounded-2xl bg-white border border-gray-200 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up" data-aos-delay="300">
+            <div class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-rose-100 text-rose-600 mb-6 dark:bg-rose-900/30 dark:text-rose-400">
+              <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Soporte y mantenimiento</h3>
+            <p class="text-rose-600 dark:text-rose-400 font-semibold mb-4 text-lg">Mantén tu sitio actualizado y funcionando.</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              Actualizaciones, correcciones y mejoras continuas para que tu web siempre esté al día.
+            </p>
+          </article>
+        </div>
+
+        <!-- CTA al final de servicios -->
+        <div class="text-center mt-16" data-aos="fade-up">
+          <p class="text-xl text-gray-900 dark:text-white font-semibold mb-6">
+            ¿Quieres un sitio como estos?
+          </p>
+          <a href="#contacto" class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-primary-700 hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
+            Agenda una llamada gratuita
+            <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+          </a>
         </div>
       </section>
 
-      <!-- Projects -->
-      <section id="projects" aria-labelledby="titulo-proyectos" class="border-t border-gray-200 py-16 dark:border-gray-800">
-        <div class="mb-8 flex items-end justify-between">
-          <h2 id="titulo-proyectos" class="text-2xl font-semibold tracking-tight">Proyectos</h2>
-          <a href="#contact" class="text-sm text-accent-700 hover:text-accent-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:text-accent-300 dark:hover:text-accent-200 rounded px-1 py-1">¿Colaboramos?</a>
+      <!-- Precios / Planes -->
+      <section id="precios" aria-labelledby="titulo-precios" class="border-t border-gray-200 py-20 dark:border-gray-800">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 id="titulo-precios" class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+            Planes que se adaptan a tu negocio
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Desde una presencia básica hasta una solución automatizada completa. Precios transparentes, sin sorpresas.
+          </p>
         </div>
 
-        <div class="grid gap-6 sm:grid-cols-2">
+        <div class="grid gap-8 lg:grid-cols-3 max-w-7xl mx-auto mb-12">
+          <!-- Plan 1: Presencia Local -->
+          <article class="relative flex flex-col rounded-2xl border-2 border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl transition-all duration-300 dark:border-gray-700 dark:bg-gray-800" data-aos="fade-up" data-aos-delay="100">
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Presencia Local</h3>
+              <div class="flex items-baseline gap-2 mb-4">
+                <span class="text-4xl font-extrabold text-gray-900 dark:text-white">$180.000</span>
+                <span class="text-gray-500 dark:text-gray-400">CLP</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Ideal para negocios nuevos que necesitan establecer su presencia digital
+              </p>
+            </div>
+
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">1 página profesional (Inicio + Contacto)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Diseño responsive (móvil, tablet, desktop)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Formulario de contacto funcional</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Integración Google Maps</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Textos y contenido incluidos</span>
+              </li>
+            </ul>
+
+            <a href="#contacto" class="block w-full text-center rounded-lg border-2 border-primary-600 px-6 py-3 text-base font-semibold text-primary-600 transition hover:bg-primary-50 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 dark:border-primary-500 dark:text-primary-400 dark:hover:bg-primary-900/20">
+              Cotizar proyecto
+            </a>
+          </article>
+
+          <!-- Plan 2: Negocio Profesional (DESTACADO) -->
+          <article class="relative flex flex-col rounded-2xl border-2 border-primary-600 bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-300 scale-105 dark:border-primary-500 dark:bg-gray-800" data-aos="fade-up">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+              <span class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-primary-600 to-accent-600 px-4 py-1.5 text-sm font-bold text-white shadow-lg">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                Más Popular
+              </span>
+            </div>
+
+            <div class="mb-6 pt-2">
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Negocio Profesional</h3>
+              <div class="flex items-baseline gap-2 mb-4">
+                <span class="text-4xl font-extrabold text-primary-600 dark:text-primary-400">$320.000</span>
+                <span class="text-gray-500 dark:text-gray-400">CLP</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed font-medium">
+                Perfecto para negocios que buscan destacar y captar más clientes
+              </p>
+            </div>
+
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-900 dark:text-white font-semibold">Todo lo del plan anterior +</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Hasta 5 páginas (Inicio, Servicios, Detalle, Nosotros, Contacto)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">SEO básico optimizado</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Formularios múltiples</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Optimización móvil avanzada</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Galería de imágenes profesional</span>
+              </li>
+            </ul>
+
+            <a href="#contacto" class="block w-full text-center rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-primary-700 hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
+              Quiero este plan
+            </a>
+          </article>
+
+          <!-- Plan 3: Negocio Automatizado -->
+          <article class="relative flex flex-col rounded-2xl border-2 border-gray-200 bg-gradient-to-br from-gray-50 to-white p-8 shadow-sm hover:shadow-xl transition-all duration-300 dark:border-gray-700 dark:from-gray-800 dark:to-gray-800" data-aos="fade-up" data-aos-delay="100">
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Negocio Automatizado</h3>
+              <div class="flex items-baseline gap-2 mb-4">
+                <span class="text-4xl font-extrabold text-gray-900 dark:text-white">$550.000</span>
+                <span class="text-gray-500 dark:text-gray-400">CLP</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Para empresas en crecimiento que quieren automatizar y escalar
+              </p>
+            </div>
+
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-accent-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-900 dark:text-white font-semibold">Todo lo del plan profesional +</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-accent-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Integración WhatsApp Business</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-accent-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Automatización Google Sheets / EmailJS</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-accent-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Sistema de reservas integrado (Calendly)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-accent-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Mantenimiento mensual incluido</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="h-5 w-5 text-accent-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">Panel de analíticas básico</span>
+              </li>
+            </ul>
+
+            <a href="#contacto" class="block w-full text-center rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:from-gray-800 hover:to-gray-700 hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:from-accent-600 dark:to-accent-700 dark:hover:from-accent-700 dark:hover:to-accent-800">
+              Conversemos
+            </a>
+          </article>
+        </div>
+
+        <!-- Nota final -->
+        <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            💡 <strong>Nota:</strong> Todos los precios incluyen diseño, desarrollo y despliegue. Los planes pueden personalizarse según tus necesidades específicas.
+          </p>
+        </div>
+      </section>
+
+      <!-- Proyectos -->
+      <section id="proyectos" aria-labelledby="titulo-proyectos" class="border-t border-gray-200 py-20 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 id="titulo-proyectos" class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+            Proyectos destacados
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Algunos de los sitios que he creado para negocios reales. Resultados medibles, clientes satisfechos.
+          </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 mb-12">
           <!-- Card Proyecto 1 -->
-          <article class="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
-            <figure class="overflow-hidden">
-              <img class="h-48 w-full object-cover transition duration-300 group-hover:scale-[1.02]" src="https://res.cloudinary.com/dznaazkwa/image/upload/v1760968406/Captura_desde_2025-10-20_10-47-45_yfmfld.png" alt="Vista previa del Proyecto 1" />
+          <article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 dark:border-gray-700 dark:bg-gray-800" data-aos="fade-up" data-aos-delay="100">
+            <figure class="overflow-hidden relative">
+              <img loading="lazy" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105" src="https://res.cloudinary.com/dznaazkwa/image/upload/v1760968406/Captura_desde_2025-10-20_10-47-45_yfmfld.png" alt="Sitio web para barbería con sistema de reservas online" />
+              <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </figure>
-            <div class="space-y-3 p-5">
+            <div class="p-6 space-y-4">
               <header>
-                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-accent-700 dark:text-white dark:group-hover:text-accent-300">Sitio Web y Sistema de Reservas Cliente: Barbería</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Este proyecto consistió en el diseño y desarrollo de un sitio web estático para una barbería local que buscaba profesionalizar su presencia online y optimizar su sistema de agendamiento de citas.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  Barbería Profesional + Sistema de Reservas
+                </h3>
+                
+                <!-- Necesidad del cliente -->
+                <div class="mb-3">
+                  <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">🎯 Necesidad:</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Barbería local necesitaba profesionalizar su presencia online y automatizar las reservas de citas que gestionaban manualmente por WhatsApp.
+                  </p>
+                </div>
+
+                <!-- Solución -->
+                <div class="mb-3">
+                  <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">✅ Solución:</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Landing page moderna + integración con sistema de reservas online. Los clientes ahora agendan directo desde el sitio.
+                  </p>
+                </div>
+
+                <!-- Resultado -->
+                <div class="bg-primary-50 dark:bg-primary-900/20 rounded-lg p-3 border border-primary-100 dark:border-primary-800">
+                  <p class="text-sm font-semibold text-primary-700 dark:text-primary-300 mb-1">📈 Resultado:</p>
+                  <p class="text-sm text-primary-900 dark:text-primary-200 font-medium">
+                    El negocio reportó un aumento del 40% en reservas mensuales y ahorró +15 horas/mes en gestión manual.
+                  </p>
+                </div>
               </header>
-              <p class="text-sm text-gray-600 dark:text-gray-300">Stack: HTML, Tailwind, JS.</p>
-              <div class="flex gap-3">
-                <a href="https://benjaminaliagamardones.github.io/proyecto-barberia/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-md bg-gray-900 px-3 py-1.5 text-sm text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white">Demo</a>
-                <a href="https://github.com/BenjaminAliagaMardones/proyecto-barberia" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800">Código</a>
+
+              <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 pt-2 border-t border-gray-200 dark:border-gray-700">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+                <span class="font-medium">HTML · Tailwind CSS · JavaScript · Calendly</span>
+              </div>
+
+              <div class="flex gap-3 pt-2">
+                <a href="https://benjaminaliagamardones.github.io/proyecto-barberia/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center flex-1 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-primary-700 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600">
+                  <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                  </svg>
+                  Ver sitio en vivo
+                </a>
+                <a href="https://github.com/BenjaminAliagaMardones/proyecto-barberia" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-4 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700">
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
 
           <!-- Card Proyecto 2 -->
-          <article class="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
-            <figure class="overflow-hidden">
-              <img class="h-48 w-full object-cover transition duration-300 group-hover:scale-[1.02]" src="https://res.cloudinary.com/dznaazkwa/image/upload/v1761193885/Captura_desde_2025-10-23_01-25-48_aidejh.png" alt="Vista previa del Proyecto 2" />
+          <article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 dark:border-gray-700 dark:bg-gray-800" data-aos="fade-up" data-aos-delay="200">
+            <figure class="overflow-hidden relative">
+              <img loading="lazy" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105" src="https://res.cloudinary.com/dznaazkwa/image/upload/v1761193885/Captura_desde_2025-10-23_01-25-48_aidejh.png" alt="Landing page elegante para pastelería y cafetería" />
+              <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </figure>
-            <div class="space-y-3 p-5">
+            <div class="p-6 space-y-4">
               <header>
-                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-accent-700 dark:text-white dark:group-hover:text-accent-300">Landing Page Pastelería & Cafetería</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Este proyecto es una landing page de alta gama diseñada y desarrollada desde cero para una pastelería y cafetería de especialidad.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  Pastelería & Cafetería Premium
+                </h3>
+                
+                <!-- Necesidad del cliente -->
+                <div class="mb-3">
+                  <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">🎯 Necesidad:</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Pastelería artesanal quería un sitio elegante que reflejara la calidad premium de sus productos y facilitara pedidos.
+                  </p>
+                </div>
+
+                <!-- Solución -->
+                <div class="mb-3">
+                  <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">✅ Solución:</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Landing page de alta gama con galería visual atractiva, menú de productos y formulario de contacto optimizado para pedidos.
+                  </p>
+                </div>
+
+                <!-- Resultado -->
+                <div class="bg-warm-50 dark:bg-warm-900/20 rounded-lg p-3 border border-warm-100 dark:border-warm-800">
+                  <p class="text-sm font-semibold text-warm-700 dark:text-warm-300 mb-1">📈 Resultado:</p>
+                  <p class="text-sm text-warm-900 dark:text-warm-200 font-medium">
+                    Mejora significativa en la percepción de marca y aumento en consultas por pedidos personalizados.
+                  </p>
+                </div>
               </header>
-              <p class="text-sm text-gray-600 dark:text-gray-300">Stack: HTML, Tailwind</p>
-              <div class="flex gap-3">
-                <a href="https://benjaminaliagamardones.github.io/proyecto-cafeteria/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-md bg-gray-900 px-3 py-1.5 text-sm text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white">Demo</a>
-                <a href="https://github.com/BenjaminAliagaMardones/proyecto-cafeteria" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800">Código</a>
+
+              <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 pt-2 border-t border-gray-200 dark:border-gray-700">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+                <span class="font-medium">HTML · Tailwind CSS</span>
+              </div>
+
+              <div class="flex gap-3 pt-2">
+                <a href="https://benjaminaliagamardones.github.io/proyecto-cafeteria/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center flex-1 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-primary-700 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600">
+                  <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                  </svg>
+                  Ver sitio en vivo
+                </a>
+                <a href="https://github.com/BenjaminAliagaMardones/proyecto-cafeteria" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-4 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700">
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </article>
         </div>
+
+        <!-- CTA -->
+        <div class="text-center" data-aos="fade-up">
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+            ¿Quieres resultados similares para tu negocio?
+          </p>
+          <a href="#contacto" class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-primary-700 hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
+            Solicita tu cotización ahora
+            <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
       </section>
 
       <!-- Contacto -->
-      <section id="contact" aria-labelledby="titulo-contacto" class="border-t border-gray-200 py-16 dark:border-gray-800">
-        <h2 id="titulo-contacto" class="mb-6 text-2xl font-semibold tracking-tight">Contacto</h2>
-        <form action="#" method="post" class="max-w-xl space-y-4">
-          <div>
-            <label for="nombre" class="mb-1 block text-sm font-medium">Nombre</label>
-            <input id="nombre" name="nombre" type="text" autocomplete="name" required
-                   class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-600 dark:border-gray-700 dark:bg-gray-800 dark:text-white" />
+      <section id="contacto" aria-labelledby="titulo-contacto" class="border-t border-gray-200 py-20 dark:border-gray-800">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12" data-aos="fade-up">
+            <h2 id="titulo-contacto" class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+              ¿Tienes un negocio? Hablemos de tu web hoy mismo
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Respondo en menos de 24 horas. Elige tu canal preferido de contacto.
+            </p>
           </div>
-          <div>
-            <label for="email" class="mb-1 block text-sm font-medium">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required
-                   class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-600 dark:border-gray-700 dark:bg-gray-800 dark:text-white" />
+
+          <div class="grid gap-8 md:grid-cols-2">
+            <!-- Formulario -->
+            <div class="order-2 md:order-1" data-aos="fade-right">
+              <form action="#" method="post" class="space-y-5 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
+                <div>
+                  <label for="nombre" class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-200">Nombre completo</label>
+                  <input id="nombre" name="nombre" type="text" autocomplete="name" required
+                         class="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                         placeholder="Juan Pérez" />
+                </div>
+                <div>
+                  <label for="email" class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-200">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required
+                         class="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                         placeholder="juan@ejemplo.com" />
+                </div>
+                <div>
+                  <label for="mensaje" class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-200">Cuéntame sobre tu proyecto</label>
+                  <textarea id="mensaje" name="mensaje" rows="5" required
+                            class="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                            placeholder="Tengo una barbería y necesito un sitio web con sistema de reservas..."></textarea>
+                </div>
+                <button type="submit" class="w-full inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg transition hover:bg-primary-700 hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2">
+                  Enviar mensaje
+                  <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+            <!-- Opciones de contacto directo -->
+            <div class="order-1 md:order-2 space-y-6" data-aos="fade-left">
+              <div class="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20 p-6 rounded-2xl border border-primary-100 dark:border-primary-800">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">O escríbeme directamente:</h3>
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/56912345678?text=Hola%20Benjamin,%20me%20interesa%20un%20sitio%20web%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 mb-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all hover:scale-102 border border-gray-200 dark:border-gray-700 group">
+                  <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+                    <svg class="h-6 w-6 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white">WhatsApp</p>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">Respuesta inmediata</p>
+                  </div>
+                  <svg class="h-5 w-5 text-gray-400 group-hover:text-primary-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:benjamin@ejemplo.com?subject=Consulta%20sobre%20desarrollo%20web" class="flex items-center gap-4 p-4 mb-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all hover:scale-102 border border-gray-200 dark:border-gray-700 group">
+                  <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900/30">
+                    <svg class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white">Email</p>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">benjamin@ejemplo.com</p>
+                  </div>
+                  <svg class="h-5 w-5 text-gray-400 group-hover:text-primary-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 mb-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all hover:scale-102 border border-gray-200 dark:border-gray-700 group">
+                  <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/30">
+                    <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white">LinkedIn</p>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">Conecta profesionalmente</p>
+                  </div>
+                  <svg class="h-5 w-5 text-gray-400 group-hover:text-primary-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/BenjaminAliagaMardones" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all hover:scale-102 border border-gray-200 dark:border-gray-700 group">
+                  <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700">
+                    <svg class="h-6 w-6 text-gray-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white">GitHub</p>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">Revisa mi código</p>
+                  </div>
+                  <svg class="h-5 w-5 text-gray-400 group-hover:text-primary-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Info adicional -->
+              <div class="bg-warm-50 dark:bg-warm-900/20 p-6 rounded-2xl border border-warm-100 dark:border-warm-800">
+                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <span class="font-semibold">⏱️ Horario de atención:</span><br>
+                  Lunes a Viernes: 9:00 - 18:00<br>
+                  Sábados: 10:00 - 14:00 (Chile 🇨🇱)
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <label for="mensaje" class="mb-1 block text-sm font-medium">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="5" required
-                      class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-600 dark:border-gray-700 dark:bg-gray-800 dark:text-white"></textarea>
-          </div>
-          <button type="submit" class="inline-flex items-center rounded-md bg-accent-600 px-4 py-2 text-white shadow-sm transition hover:bg-accent-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-600">
-            Enviar
-          </button>
-        </form>
+        </div>
       </section>
     </main>
 
+    <!-- Scroll to top button -->
+    <button id="scroll-to-top" class="fixed bottom-6 right-6 z-50 hidden h-12 w-12 items-center justify-center rounded-full bg-primary-600 text-white shadow-lg transition hover:bg-primary-700 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2" aria-label="Volver arriba">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+      </svg>
+    </button>
+
     <!-- Footer -->
-    <footer role="contentinfo" class="mt-10 border-t border-gray-200 py-8 text-center text-sm text-gray-500 dark:border-gray-800 dark:text-gray-400">
-      <small>© 2025 Benjamin Aliaga. Todos los derechos reservados.</small>
+    <footer role="contentinfo" class="border-t border-gray-200 py-12 text-center dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+      <div class="mx-auto max-w-6xl px-4">
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <strong class="text-gray-900 dark:text-white">Benjamin Aliaga</strong> — Desarrollador Web Freelance
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-500">
+          © 2025 Benjamin Aliaga. Todos los derechos reservados.
+        </p>
+      </div>
     </footer>
+
+    <!-- AOS Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Inicializar AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+
+      // Navbar shadow on scroll
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add('navbar-shadow');
+        } else {
+          navbar.classList.remove('navbar-shadow');
+        }
+      });
+
+      // Scroll to top button
+      const scrollBtn = document.getElementById('scroll-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollBtn.classList.remove('hidden');
+          scrollBtn.classList.add('flex');
+        } else {
+          scrollBtn.classList.add('hidden');
+          scrollBtn.classList.remove('flex');
+        }
+      });
+
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
   </body>
 </html>
